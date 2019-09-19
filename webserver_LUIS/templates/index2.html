@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>WEBSERVER</title>
+</head>
+<style>
+    
+   
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .red-square {
+    background-color: rgba(61, 122, 235, 0.685);
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    }
+    .container{            
+    width: 2000px;
+    height: 1000vh;
+    display: flex;
+    background-color: lightblue;
+    }
+    .square_btn {
+        display: inline-block;
+        padding: 0.3em 1em;
+        text-decoration: none;
+        color: #67c5ff;
+        border: solid 2px #67c5ff;
+        border-radius: 3px;
+        transition: .4s;
+        }
+
+    .square_btn:hover {
+        background: #67c5ff;
+        color: white;
+    }
+</style>
+
+<body>
+    <nav class="red-square">
+                        
+        <form>  
+            CPF: <input type="text" id="number" placeholder="DIGITE SEU CPF" name="number"/><br/>  
+            <input type="button" class= "square_btn"  value="ENVIAR" onclick="validacpf()"/>  
+        </form>  
+
+        <form>  
+            ZEROS: <input type="text" id="zeros" placeholder="DIGITE UMA SEQUENCIA DE ZEROS" name="zeros" /><br/>  
+            <input type="button" class= "square_btn"  value="ENVIAR" onclick="zerosdist()"/>  
+        </form>  
+
+        <form>  
+            ROMANOS: <input type="text" id="roman"  placeholder="DIGITE UM VALOR INTERIOR" name="roman"/><br/>  
+            <input type="button" class= "square_btn" value="ENVIAR" onclick="romanos_int()"/>  
+        </form> 
+        <form action="http://127.1.1.1:9999/gera_senha">
+            <button type="submit" class = "square_btn">GERA SENHA</button>
+        </form>  
+
+        <script type="text/javascript">  
+        function validacpf(){  
+        var number=document.getElementById("number").value;
+        window.location = "http://127.1.1.1:9999/validacpf/" + number;
+        }
+        </script> 
+        
+        <script type="text/javascript"> 
+        function zerosdist(){
+        var zeros=document.getElementById("zeros").value;
+        window.location = "http://127.1.1.1:9999/dist_zeros/" + zeros;
+        }
+        </script> 
+
+        <script type="text/javascript"> 
+        function romanos_int(){
+        var romanos=document.getElementById("roman").value;
+        window.location = "http://127.1.1.1:9999/romano/" + romanos;
+        }
+        </script>        
+
+</body>
+</html>
